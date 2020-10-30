@@ -4,6 +4,7 @@
 
 - java -jar .\gateway-server-0.0.1-SNAPSHOT.jar
 - curl http://127.0.0.1:8088/api/hello
+- 返回“hello word”
 
 ### 网关基础代码使用老师提供的nio02
 
