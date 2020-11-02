@@ -25,3 +25,8 @@
 
 - curl http://127.0.0.1:8888/api/hello
 - 返回“hello word”
+  
+## 周六作业：实现过滤器
+
+- 在inbound调用outbound之前，增加过滤器filterForAddingHead(fullRequest)
+- io.github.kimmking.gateway.inbound.HttpInboundHandler: private void filterForAddingHead(FullHttpRequest fullRequest)
