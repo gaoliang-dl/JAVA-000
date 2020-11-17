@@ -5,3 +5,4 @@
 [testTx()](https://github.com/gaoliang-dl/JAVA-000/blob/main/Week_05/week5/src/test/java/gaol/practice/class4/Tests.java)  
 #### 配置Hikari连接池，改进上述操作
 [run(String... args)](https://github.com/gaoliang-dl/JAVA-000/blob/main/Week_05/week5/src/main/java/gaol/practice/class4/Week5Application.java)  
+## 给前面课程提供的Student/Klass/School实现自动配置和Starter：
