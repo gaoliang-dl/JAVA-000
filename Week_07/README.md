@@ -21,7 +21,7 @@ INSERT INTO `test`.`t_order` (`order_id`, `user_id`, `cost_count`, `status`, `sn
 ```
 ```java
 suffix.append("(" + SnowflakeIdUtil.getIdUtilNo() + "," + SnowflakeIdUtil.getIdUtilNo() + "," + 1000 + "," + 1 + ",'snapshot'),");
-String sql = prefix + suffix.toString();
+String sql = prefix + suffix.substring(0, suffix.length() - 1);
 preparedStatement.addBatch(sql);
 preparedStatement.executeBatch();
 ```
