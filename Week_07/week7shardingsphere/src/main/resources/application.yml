@@ -1,0 +1,32 @@
+sharding:
+  jdbc:
+    dataSource:
+      names: db-master,db-slave
+      db-master:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://10.1.52.34:3306/test?useSSL=false
+        username: root
+        password: 1qaz#EDC
+        maxPoolSize: 20
+      db-slave:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://10.1.52.34:3306/test2?useSSL=false
+        username: root
+        password: 1qaz#EDC
+        maxPoolSize: 20
+    config:
+      masterslave:
+        load-balance-algorithm-type: round_robin
+        name: db2m1s1
+        master-data-source-name: db-master
+        slave-data-source-names: db-slave
+
+mybatis:
+  type-aliases-package: com.example.week7shardingsphere.mapper
+  mapperLocations: classpath:mapper/*Mapper.xml
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
