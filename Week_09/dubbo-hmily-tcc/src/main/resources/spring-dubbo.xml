@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://dubbo.apache.org/schema/dubbo/dubbo.xsd
+        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+    <dubbo:application name="transaction_service"/>
+
+    <dubbo:registry protocol="zookeeper" address="localhost:2181"/>
+
+    <dubbo:protocol name="dubbo" port="20886"
+                    server="netty" client="netty"
+                    charset="UTF-8" threadpool="fixed" threads="500"
+                    queues="0" buffer="8192" accepts="0" payload="8388608"/>
+
+    <dubbo:reference timeout="500000000"
+                     interface="org.dromara.hmily.demo.dubbo.order.service.OrderService"
+                     id="orderService"
+                     retries="0" check="false" actives="20" loadbalance="hmilyRandom"/>
+</beans>
