@@ -13,7 +13,45 @@
 ```
 #### 尝试将客户端动态代理改成 AOP，添加异常处理；
 ```java
-//TODO
+    public static <T> T create(final Class<T> serviceClass, final String url) {
+        // 0. 替换动态代理 -> AOP
+//        return (T) Proxy.newProxyInstance(Rpcfx.class.getClassLoader(), new Class[]{serviceClass}, new RpcfxInvocationHandler(serviceClass, url));
+        Enhancer enhancer = new Enhancer();
+        enhancer.setSuperclass(serviceClass);
+        enhancer.setCallback(new AopMethodInterceptor(url));
+        return (T) enhancer.create();
+    }
+```
+```java
+    public static class AopMethodInterceptor implements MethodInterceptor {
+
+        private final String url;
+
+        public <T> AopMethodInterceptor(String url) {
+            this.url = url;
+        }
+
+        private RpcfxResponse post(RpcfxRequest req, String url) throws IOException {
+            OkHttpClient client = new OkHttpClient();
+            final Request request = new Request.Builder()
+                    .url(url)
+                    .post(RequestBody.create(MediaType.get("application/json; charset=utf-8"), JSON.toJSONString(req)))
+                    .build();
+            String respJson = client.newCall(request).execute().body().string();
+            System.out.println("resp json: " + respJson);
+            return JSON.parseObject(respJson, RpcfxResponse.class);
+        }
+
+        @Override
+        public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+            RpcfxRequest request = new RpcfxRequest();
+            request.setServiceClass(o.getClass().getName());
+            request.setMethod(method.getName());
+            request.setParams(objects);
+            RpcfxResponse response = post(request, url);
+            return JSON.parse(response.getResult().toString());
+        }
+    }
 ```
 #### 尝试使用 Netty+HTTP 作为 client 端传输方式。
 ###### 初始化netty client
