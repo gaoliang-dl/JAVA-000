@@ -20,3 +20,5 @@ set b 1
 - 执行结果截图  
 ![image](https://github.com/gaoliang-dl/JAVA-000/blob/main/Week_12/截屏2021-01-02%20下午11.43.47.png)   
 ![image](https://github.com/gaoliang-dl/JAVA-000/blob/main/Week_12/截屏2021-01-02%20下午11.44.07.png)   
+- 从库配置文件
+[配置文件](/redis6380.conf)  
