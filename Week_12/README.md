@@ -31,5 +31,7 @@ set b 1
 - 关闭主redis  
 - redis从库变为了主库
 - 截图  
-
+![image](https://github.com/gaoliang-dl/JAVA-000/blob/main/Week_12/截屏2021-01-03%20上午12.44.34.png)   
 - 配置文件 
+[配置文件](https://github.com/gaoliang-dl/JAVA-000/blob/main/Week_12/sentinel26380.conf)  
+
