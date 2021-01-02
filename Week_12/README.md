@@ -17,6 +17,6 @@ info
 get a
 set b 1
 ```
-- 执行结果截图
-![image](截屏2021-01-02 下午11.43.47.png) 
-![image](截屏2021-01-02 下午11.44.07.png) 
+- 执行结果截图  
+![image](https://github.com/gaoliang-dl/JAVA-000/blob/main/Week_12/截屏2021-01-02%20下午11.43.47.png)   
+![image](https://github.com/gaoliang-dl/JAVA-000/blob/main/Week_12/截屏2021-01-02%20下午11.44.07.png)   
