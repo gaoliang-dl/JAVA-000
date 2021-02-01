@@ -1,4 +1,5 @@
-# 毕业总结
+# 毕业总结  
+![image](https://github.com/gaoliang-dl/JAVA-000/blob/main/Week_15/%E6%AF%95%E4%B8%9A%E6%80%BB%E7%BB%93.svg)   
 
 # 1.    JVM
 
